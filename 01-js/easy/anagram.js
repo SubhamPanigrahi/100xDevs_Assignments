@@ -6,6 +6,14 @@
 
 function isAnagram(str1, str2) {
 
+  // Shortcut NLogN + MLogM solution, where N and M are str1.length and str2.length respectively
+  // No Auxillary space
+
+  str1 = str1.toLowerCase().replace(" ", "").split("").sort().join("");
+  str2 = str2.toLowerCase().replace(" ", "").split("").sort().join("");
+
+  return (str1 == str2)? true : false;
+
 }
 
 module.exports = isAnagram;

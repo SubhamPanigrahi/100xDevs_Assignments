@@ -6,7 +6,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+
+  let categoryWiseExpense = {};
+
+  for(const trx of transactions){
+    categoryWiseExpense[trx['category']] = (categoryWiseExpense[trx['category']] == undefined) ? trx['price'] : categoryWiseExpense[trx['category']] + trx['price'];
+  }
+
+  let result = []
+  for(const category in categoryWiseExpense){
+    let ansObj = {}
+    ansObj["category"] = category;
+    ansObj["totalSpent"] = categoryWiseExpense[category];
+    result.push(ansObj);
+  }
+
+  return result;
+
 }
+
 
 module.exports = calculateTotalSpentByCategory;

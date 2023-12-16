@@ -4,7 +4,10 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  // removes everything except a-z & A-Z including spaces
+  const filteredStr = str.replace(/[^a-zA-Z]+/g, "");
+  return (filteredStr == filteredStr.split('').reverse().join(''));
 }
 
 module.exports = isPalindrome;
